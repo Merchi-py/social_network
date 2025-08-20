@@ -1,0 +1,25 @@
+# General
+.git
+.gitignore
+social_network_fe/Dockerfile_react
+social_network_be/Dockerfile_django
+docker-compose.yml
+*.md
+*.log
+*.sqlite3
+
+# Python / Django
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+.env
+venv/
+.env.local
+
+# Node / React
+node_modules/
+npm-debug.log
+yarn-error.log
+build/
