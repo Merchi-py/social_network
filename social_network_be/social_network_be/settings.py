@@ -41,8 +41,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #Important for React JS
     'rest_framework',
-    'corsheaders',
+
+    # Allauth apps
+    # 'allauth',
+    # 'allauth.account',
+    # 'allauth.socialaccount',
 ]
 
 MIDDLEWARE = [
@@ -53,10 +59,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
@@ -64,12 +68,28 @@ REST_FRAMEWORK = {
     ]
 }
 
+
+#django-allatuh configurations
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_VERIFICATION = 'none'  # 'none', 'optional', 'mandatory'
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
+
+#django-allauth redirects
+ACCOUNT_LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/'
+
 ROOT_URLCONF = 'social_network_be.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -89,8 +109,12 @@ WSGI_APPLICATION = 'social_network_be.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ["DB_NAME"],
+        'USER': os.environ["DB_USER"],
+        'PASSWORD': os.environ["DB_PASSWORD"],
+        'HOST': os.environ["DB_HOST"],
+        'PORT': os.environ["DB_PORT"]
     }
 }
 
