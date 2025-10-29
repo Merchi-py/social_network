@@ -42,6 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'social_network_be',
+    'posts',
+    'user',
+
     #Important for React JS
     'rest_framework',
 
