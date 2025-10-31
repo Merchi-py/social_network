@@ -1,0 +1,21 @@
+{% extends "base_auth/base.html" %}
+
+
+{% block title %}{% endblock %}
+
+
+{% block import %}
+{% endblock %}
+
+
+{% block content %}
+  <h2>Sign up</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Sign up</button>
+  </form>
+  <p>Or</p>
+  <a href="{% provider_login_url 'google' %}">Sign up with Google</a>
+{% endblock %}
+
