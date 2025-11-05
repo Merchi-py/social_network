@@ -19,5 +19,6 @@ from .views import *
 
 urlpatterns = [
     path("", TextView.as_view(), name="text_posts"),
+    path("create-post/", TextCreationView.as_view(), name="create_text"),
 ]
 
