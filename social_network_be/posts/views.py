@@ -1,11 +1,25 @@
-from django.views.generic import ListView, TemplateView
+from django.http import HttpResponseRedirect
+from django.views.generic import ListView, TemplateView, DetailView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
 from .models import PostTextModel, PostPhotoModel
-
-
+from .forms import PostTextCreationForm
 
 
 class TextView(ListView):
-    template_name = "posts/post_text.html"
+    template_name = "posts/text/post_text.html"
     model = PostTextModel
     context_object_name = "text_posts"
+
+class TextCreationView(CreateView):
+    template_name = "posts/text/post_text_create.html"
+    model = PostTextModel
+    form_class = PostTextCreationForm
+    success_url = "/"
+
+    def form_valid(self, form):
+        if self.request.user.is_authenticated:
+            form.instance.user = self.request.user
+        return super().form_valid(form)
+
+
