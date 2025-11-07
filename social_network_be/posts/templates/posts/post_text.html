@@ -1,0 +1,32 @@
+{% extends "base/base.html" %}
+
+
+{% block title %}Text Posts{% endblock %}
+
+
+{% block import %}
+{% endblock %}
+
+
+{% block content %}
+<div>
+    <a href="{% url 'create_text' %}" class="btn btn-secondary">
+        <strong>✚</strong>
+    </a>
+</div>
+
+
+{% for p in text_posts %}
+
+<div style="background-color: blue; padding: 20px">
+    <h4><b>{{ p.title }}</b></h4>
+    <h5>{{ p.content }}</h5>
+
+</div><br>
+
+{% empty %}
+
+<h2>There are no Posts yet</h2>
+
+{% endfor %}
+{% endblock %}
