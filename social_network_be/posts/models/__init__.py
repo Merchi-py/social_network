@@ -1,2 +1,2 @@
-from .post import PostTextModel, PostPhotoModel
+from .post import PostModel
 from .components import Comments
