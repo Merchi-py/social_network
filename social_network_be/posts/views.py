@@ -2,19 +2,19 @@ from django.http import HttpResponseRedirect
 from django.views.generic import ListView, TemplateView, DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
-from .models import PostTextModel, PostPhotoModel
-from .forms import PostTextCreationForm
+from .models import PostModel
+from .forms import PostCreationForm
 
 
 class TextView(ListView):
     template_name = "posts/text/post_text.html"
-    model = PostTextModel
+    model = PostModel
     context_object_name = "text_posts"
 
 class TextCreationView(CreateView):
     template_name = "posts/text/post_text_create.html"
-    model = PostTextModel
-    form_class = PostTextCreationForm
+    model = PostModel
+    form_class = PostCreationForm
     success_url = "/"
 
     def form_valid(self, form):
