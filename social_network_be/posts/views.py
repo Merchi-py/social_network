@@ -7,12 +7,12 @@ from .forms import PostCreationForm
 
 
 class TextView(ListView):
-    template_name = "posts/text/post_text.html"
+    template_name = "posts/post_text.html"
     model = PostModel
     context_object_name = "text_posts"
 
 class TextCreationView(CreateView):
-    template_name = "posts/text/post_text_create.html"
+    template_name = "posts/post_text_create.html"
     model = PostModel
     form_class = PostCreationForm
     success_url = "/"
