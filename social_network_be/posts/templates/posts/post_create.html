@@ -9,10 +9,11 @@
 
 
 {% block content %}
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.title }}
-    {{ form.content }} <input type="submit" value="Create" class="btn btn-secondary">
+    {{ form.content }}
+    {{ form.image }} <input type="submit" value="Create" class="btn btn-secondary">
 </form>
 
 {% endblock %}
