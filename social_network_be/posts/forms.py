@@ -1,11 +1,11 @@
 from django import forms
 
-from .models import PostTextModel
+from .models import PostModel
 
-class PostTextCreationForm(forms.ModelForm):
+class PostCreationForm(forms.ModelForm):
     class Meta:
-        model = PostTextModel
-        fields = ["title", "content"]
+        model = PostModel
+        fields = ["title", "content", "image"]
 
         widgets = {
             "title": forms.TextInput(attrs={
@@ -15,5 +15,5 @@ class PostTextCreationForm(forms.ModelForm):
             "content": forms.Textarea(attrs={
                 "placeholder": "Enter the content",
                 "class": "form_control"
-            })
+            }),
         }
