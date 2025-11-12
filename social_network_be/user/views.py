@@ -1,20 +1,14 @@
-from django.views.generic import CreateView
-from django.contrib.auth.views import LoginView, LogoutView
+from django.views.generic import ListView, TemplateView, DetailView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .models import User
-from .forms import UserSignUpForm, UserSignInForm
+from posts.models import PostModel
 
-class UserSignUp(CreateView):
-    template_name = "user/sign-up.html"
-    form_class = UserSignUpForm
-    model = User
-    success_url = '/'
 
-class UserSignIn(LoginView):
-    template_name = 'user/sign-in.html'
-    form_class = UserSignInForm
-    redirect_authenticated_user = True
+class Profile(ListView, LoginRequiredMixin):
+    template_name = "user/profile.html"
+    model = PostModel
+    context_object_name = "my_posts"
 
-class UserSignOut(LogoutView):
-    pass
-
+    def get_queryset(self):
+        return PostModel.objects.get_sorted_posts(self.request.user)
