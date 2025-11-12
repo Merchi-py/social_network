@@ -11,4 +11,4 @@ class Profile(ListView, LoginRequiredMixin):
     context_object_name = "my_posts"
 
     def get_queryset(self):
-        return PostModel.objects.get_sorted_posts(self.request.user)
+        return PostModel.profile.get_sorted_posts(self.request.user)
