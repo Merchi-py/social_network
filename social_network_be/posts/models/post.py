@@ -1,12 +1,11 @@
 from django.db import models
 
 from user.models import User
-from user.managers import SortedProfilePosts
 
 from base.models import TimeStampedModel
 
 from .components import Comments
-from posts.managers import PostManager
+from posts.managers import PostManager, SortedProfilePosts
 
 
 class PostModel(TimeStampedModel, models.Model):
