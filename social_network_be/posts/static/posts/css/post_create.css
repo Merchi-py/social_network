@@ -1,0 +1,88 @@
+body {
+    font-family: "Inter", sans-serif;
+    background: linear-gradient(135deg, #e3e9ff 0%, #f7f9ff 100%);
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
+
+form {
+    position: relative; /* нужно, чтобы переместить кнопку */
+    background: rgba(255, 255, 255, 0.7);
+    padding: 40px 40px;
+    width: 450px;
+    border-radius: 18px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.form_control {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 16px;
+    border: 2px solid #d4d9e6;
+    border-radius: 12px;
+    background: #f7f9ff;
+    transition: 0.25s ease;
+}
+
+
+.form_control:focus {
+    border-color: #6b7cff;
+    background: #fff;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(107, 124, 255, 0.25);
+}
+
+
+textarea.form_control {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.btn.btn-secondary {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #6b7cff;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.btn.btn-secondary:hover {
+    background: #5a6aff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(107, 124, 255, 0.3);
+}
+
+
+input[type="file"] {
+    padding: 6px 0;
+    font-size: 15px;
+}
+
+
+.profile-link {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #6b7cff;
+    box-shadow: 0 4px 12px rgba(107, 124, 255, 0.3);
+    transition: 0.3s ease;
+}
+
+.profile-link:hover {
+    transform: scale(1.08);
+}
