@@ -18,7 +18,8 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    path("", TextView.as_view(), name="text_posts"),
-    path("create-post/", TextCreationView.as_view(), name="create_text"),
+    path("", PostView.as_view(), name="home"),
+    path("create-post/", PostCreateView.as_view(), name="create_text"),
+    path("delete-post/<int:pk>", PostDeleteView.as_view(), name="delete_post"),
 ]
 
