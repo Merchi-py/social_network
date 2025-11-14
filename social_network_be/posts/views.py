@@ -27,3 +27,7 @@ class PostCreateView(CreateView, LoginRequiredMixin):
         return super().form_valid(form)
 
 
+class PostDeleteView(DeleteView, LoginRequiredMixin):
+    model = PostModel
+    http_method_names = ['post']
+    success_url = '/'
