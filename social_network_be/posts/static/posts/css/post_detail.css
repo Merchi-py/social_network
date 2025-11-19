@@ -1,0 +1,64 @@
+.posts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.inner_div {
+    border: 1px solid #EBEBEB;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px;
+    width: 40%;
+    background-color: #fafafa;
+}
+
+.title-row {
+    position: relative;
+    text-align: center;
+    padding: 8px 40px 8px 8px;
+}
+
+.title-row .title {
+    display: inline-block;
+}
+
+.menu-btn {
+    position: absolute;
+    right: 1px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 1px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: #f1f1f1;
+    min-width: 120px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 10;
+    overflow: hidden;
+}
+
+.dropdown-content button {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+}
+
+.dropdown-content button:hover {
+    background-color: #ddd;
+}
