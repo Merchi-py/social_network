@@ -1,0 +1,41 @@
+{% extends "base/base.html" %}
+
+{% load static %}
+
+{% block title %}Detail{% endblock %}
+
+
+{% block import %}
+<link rel="stylesheet" href="{% static 'posts/css/post_detail.css' %}">
+{% endblock %}
+
+{% block content %}
+<form id="deleteForm" action="{% url 'delete_post' post.id %}" method="post">{% csrf_token %}</form>
+
+
+<div class="posts">
+  <div class="inner_div">
+    <div class="title-row">
+      <strong class="title">{{ post.title }}</strong>
+      <div class="menu-container">
+        <button class="menu-btn" onclick="DropdownList(this)">⋮</button>
+        <div class="dropdown-content">
+          <button onclick="deletePost(this)">Delete</button>
+        </div>
+      </div>
+    </div>
+
+    <p>{{ post.content }}</p>
+    <p>{{ post.created_at }}</p>
+  </div>
+</div>
+
+
+
+
+
+
+<script src="{% static 'posts/css/post_detail.css' %}"></script>
+<script src="{% static 'posts/js/post_detail.js' %}"></script>
+
+{% endblock %}
