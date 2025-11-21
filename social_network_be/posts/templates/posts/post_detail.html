@@ -20,7 +20,8 @@
       <div class="menu-container">
         <button class="menu-btn" onclick="DropdownList(this)">⋮</button>
         <div class="dropdown-content">
-          <button onclick="deletePost(this)">Delete</button>
+          <button class="deleteButton" onclick="deletePost(this)">Delete</button>
+          <a class="btn btn" href="{% url 'update_post' post.id %}">Edit</a>
         </div>
       </div>
     </div>
