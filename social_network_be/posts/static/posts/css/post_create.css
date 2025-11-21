@@ -8,7 +8,7 @@ body {
 
 
 form {
-    position: relative; /* нужно, чтобы переместить кнопку */
+    position: relative;
     background: rgba(255, 255, 255, 0.7);
     padding: 40px 40px;
     width: 450px;

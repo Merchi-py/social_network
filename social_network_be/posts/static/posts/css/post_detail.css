@@ -62,3 +62,7 @@
 .dropdown-content button:hover {
     background-color: #ddd;
 }
+
+.deleteButton {
+    text_align: center;
+}
