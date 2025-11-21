@@ -5,7 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 
 from .models import PostModel
-from .forms import PostCreationForm
+from .forms import PostCreationForm, PostUpdateForm
 
 
 class PostView(ListView):
@@ -44,6 +44,18 @@ class PostDetailView(DetailView, LoginRequiredMixin):
     slug_url_kwarg = 'post_id'
     context_object_name = 'post'
 
-# class PostUpdateView(UpdateView, LoginRequiredMixin):
-#     template_name = "posts/post_update.html"
-#     model = PostModel
+class PostUpdateView(UpdateView, LoginRequiredMixin):
+    template_name = "posts/post_update.html"
+    model = PostModel
+    slug_field = 'id'
+    slug_url_kwarg = 'post_id'
+
+    def get_form_class(self):
+        return PostUpdateForm
+
+    def get_object(self, queryset=None):
+        return PostModel.objects.get(id=self.kwargs["post_id"], user=self.request.user)
+
+    def get_success_url(self):
+        return reverse_lazy("detail_post", kwargs={"post_id": self.object.id})
+
