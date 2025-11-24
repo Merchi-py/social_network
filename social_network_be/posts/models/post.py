@@ -18,8 +18,9 @@ class PostModel(TimeStampedModel, models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     comments = models.ForeignKey(Comments, on_delete=models.CASCADE, blank=True, null=True)
 
-    profile = SortedProfilePosts()
     objects = PostManager()
+    profile = SortedProfilePosts()
+
 
 
 
