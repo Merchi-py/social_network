@@ -1,21 +1,89 @@
-{% extends "base_auth/base.html" %}
+{% extends "base/base.html" %}
 
+{% load static %}
 
-{% block title %}{% endblock %}
+{% block title %}{{ request.user }}{% endblock %}
 
 
 {% block import %}
+<link rel="stylesheet" href="{% static 'user/css/profile.css' %}">
 {% endblock %}
 
 
 {% block content %}
-  <h2>Sign up</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign up</button>
-  </form>
-  <p>Or</p>
-  <a href="{% provider_login_url 'google' %}">Sign up with Google</a>
+
+<div class="container-fluid">
+    <div class="row" style="height: 20vh;">
+        <div class="col-12 profile-header">
+    <img class="profile_image" alt="Picture" src="{{ request.user.profile.image.url }}">
+
+    <div class="profile-info">
+        <h1>{{ request.user }}</h1>
+    </div>
+
+    <button class="settings-btn" type="button" data-bs-toggle="modal" data-bs-target="#settingsModal">
+        ≡
+    </button>
+</div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <div class="posts-container">
+                    {% for mp in my_posts %}
+                        <div class="post">
+                            <a href="{% url 'detail_post' mp.id %}">
+                                {% if mp.image %}
+                                    <img src="{{ mp.image.url }}">
+                                {% endif %}
+                                <h4>{{ mp.title }}</h4>
+                            <h6>{{ mp.content }}</h6>
+                            <p class="created-at">{{ mp.created_at }}</p>
+                            </a>
+                        </div>
+                        {% empty %}
+                        <div class="posts-container">
+                            <div class="post">
+                                <strong>There are no posts yet.</strong>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="settingsModalLabel">Settings</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          {% if request.user.is_authenticated %}
+            <ul>
+                <li>
+                    <a href="{% url 'profile_edit' request.user.id %}" style="width: 434px;" class="btn btn">Edit Profile</a>
+                </li>
+                <li>
+                    <a href="" style="width: 434px;" class="btn btn">Support</a>
+                </li>
+            </ul>
+
+          {% endif %}
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="{% static 'user/css/profile.css' %}"></script>
 {% endblock %}
 
