@@ -1,16 +1,110 @@
 .posts {
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
+    margin: 30px 0;
 }
 
 .inner_div {
-    border: 1px solid #EBEBEB;
-    border-radius: 5px;
-    padding: 15px;
-    margin: 10px;
-    width: 40%;
-    background-color: ;
+    width: 500px;
+    background: #fff;
+    border-radius: 18px;
+    padding: 20px 22px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e6e6e6;
+    transition: 0.25s ease;
+    font-family: "Inter", sans-serif;
 }
+
+.inner_div img {
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+.inner_div strong {
+    font-size: 1.4rem;
+    color: #222;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.inner_div p,
+.inner_div {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.5;
+}
+
+
+.inner_div small {
+    display: block;
+    margin-top: 10px;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.button-row {
+    display: flex;
+    gap: 10px;
+  }
+
+  button[class="likeBtn"] {
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid #28a745;
+    border-radius: 5px;
+    background-color: #e9f7ef;
+    color: #28a745;
+    transition: all 0.2s;
+  }
+
+  button[class="likeBtn"] svg {
+    width: 20px;
+    height: 20px;
+    fill: #28a745;
+    transition: fill 0.2s;
+  }
+
+  button[class="likeBtn"]:hover {
+    background-color: #d4f0d6;
+  }
+
+  button[class="likeBtn"]:hover svg {
+    fill: #1e7e34;
+  }
+
+
+  button[class="dislikeBtn"] {
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid #dc3545;
+    border-radius: 5px;
+    background-color: #f8e9ea;
+    color: #dc3545;
+    transition: all 0.2s;
+  }
+
+  button[class="dislikeBtn"] svg {
+    width: 20px;
+    height: 20px;
+    fill: #dc3545;
+    transition: fill 0.2s;
+  }
+
+  button[class="dislikeBtn"]:hover {
+    background-color: #f5d6da;
+  }
+
+  button[class="dislikeBtn"]:hover svg {
+    fill: #a71d2a;
+  }
