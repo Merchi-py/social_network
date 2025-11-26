@@ -15,7 +15,7 @@ class PostModel(TimeStampedModel, models.Model):
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    comments = models.ForeignKey(posts.Comment, on_delete=models.CASCADE, blank=True, null=True)
+    comments = models.ForeignKey("posts.Comments", on_delete=models.CASCADE, blank=True, null=True)
 
     likes_count = models.PositiveIntegerField(default=0, null=True)
     dislikes_count = models.PositiveIntegerField(default=0, null=True)
