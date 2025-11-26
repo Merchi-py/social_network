@@ -1,6 +1,7 @@
 $(".likeBtn").click(function() {
     let post_id = $(this).data("post-id");
 
+
     $.ajax(`/like_system/${post_id}/`, {
         "type": 'POST',
         "async": true,
