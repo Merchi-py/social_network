@@ -63,7 +63,7 @@
       <a href="{% url 'home'%}" >
           <img src="https://i.pinimg.com/736x/aa/bc/67/aabc673362150a63e930dc0f0173411a.jpg" alt="Home" class=" home-picture">
       </a>
-      <a href="{% url 'profile'  %}" class="profile-link">
+      <a href="{% url 'profile' request.user.id %}" class="profile-link">
         <img src="" alt="Profile" class="avatar">
       </a>
     </div>
