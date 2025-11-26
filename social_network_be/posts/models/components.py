@@ -18,7 +18,7 @@ class Rating(models.Model):
     ]
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    post = models.ForeignKey(PostModel, on_delete=models.CASCADE)
+    post = models.ForeignKey("posts.PostModel", on_delete=models.CASCADE)
     reaction = models.CharField(max_length=7, choices=RATING)
 
     class Meta:
