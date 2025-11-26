@@ -1,2 +1,2 @@
 from .post import PostModel
-from .components import Comments
+from .components import Comments, Rating
