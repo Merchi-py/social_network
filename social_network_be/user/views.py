@@ -21,6 +21,8 @@ class ProfileEdit(UpdateView, LoginRequiredMixin):
     slug_field = 'id'
     slug_url_kwarg = 'user_id'
     form_class = UserUpdateForm
-    success_url = reverse_lazy("profile")
+
+    def get_success_url(self):
+        return reverse_lazy("profile", kwargs={"user_id": self.object.id})
 
 
