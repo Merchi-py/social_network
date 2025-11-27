@@ -29,6 +29,7 @@
         <strong>{{ p.title }}</strong>
         <p>{{ p.content }}</p>
         <small>{{ p.created_at }}</small>
+        <div class="reaction-buttons">
           <button class="likeBtn" data-post-id="{{ p.id }}">
             <svg viewBox="0 0 24 24">
               <path d="M2 21h4V9H2v12zm19-11c0-1.1-.9-2-2-2h-6.31l.95-4.57
@@ -48,7 +49,7 @@
               </svg><span class="dislike-count" data-post-id="{{ p.id }}">{{ p.dislikes_count }}</span>
 
             </button>
-
+          </div>
     </div>
 </div>
 <br>
