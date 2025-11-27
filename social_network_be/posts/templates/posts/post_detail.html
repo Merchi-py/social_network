@@ -15,6 +15,10 @@
 
 <div class="posts">
   <div class="inner_div">
+    {% if post.image %}
+      <img class="post-image" src="{{ post.image.url }}">
+    {% endif %}
+
     <div class="title-row">
       <strong class="title">{{ post.title }}</strong>
       <div class="menu-container">
@@ -28,11 +32,12 @@
 
     <p>{{ post.content }}</p>
     <p>{{ post.created_at }}</p>
+
   </div>
 </div>
 
 
-<script src="{% static 'posts/css/post_detail.css' %}"></script>
+
 <script src="{% static 'posts/js/post_detail.js' %}"></script>
 
 {% endblock %}
