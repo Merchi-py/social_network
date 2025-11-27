@@ -15,7 +15,12 @@
 <div class="container-fluid">
     <div class="row" style="height: 20vh;">
         <div class="col-12 profile-header">
-    <img class="profile_image" alt="Picture" src="{{ request.user.profile.image.url }}">
+            {% if user.avatar %}
+                    <img class="profile_image" alt="Picture" src="{{ request.user.avatar.url }}">
+            {% else %}
+                <img src="https://i.pinimg.com/736x/f4/6c/c1/f46cc1889a5591b5a1268adbfe80a29f.jpg" alt="Profile" class="profile_image">
+            {% endif %}
+
 
     <div class="profile-info">
         <h1>{{ request.user }}</h1>
