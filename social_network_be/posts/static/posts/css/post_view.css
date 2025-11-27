@@ -47,8 +47,16 @@
 
 .button-row {
     display: flex;
-    gap: 10px;
-  }
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.reaction-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
 
   button[class="likeBtn"] {
     font-size: 16px;
