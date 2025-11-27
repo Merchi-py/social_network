@@ -3,66 +3,118 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    text-align: center;
+    padding: 20px 0;
 }
 
 .inner_div {
+    width: 60%;
+    background: #fafafa;
     border: 1px solid #EBEBEB;
-    border-radius: 5px;
-    padding: 15px;
-    margin: 10px;
-    width: 40%;
-    background-color: #fafafa;
+    border-radius: 14px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    overflow: hidden;
+    padding-bottom: 20px;
+    margin: 15px;
+}
+
+
+
+.post-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    margin-bottom: 15px;
 }
 
 .title-row {
-    position: relative;
-    text-align: center;
-    padding: 8px 40px 8px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px 10px 20px;
 }
 
 .title-row .title {
-    display: inline-block;
+    font-size: 26px;
+    font-weight: 600;
+    text-align: left;
+}
+
+
+.menu-container {
+    position: relative;
 }
 
 .menu-btn {
-    position: absolute;
-    right: 1px;
-    top: 50%;
-    transform: translateY(-50%);
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 20px;
-    padding: 1px;
+    font-size: 24px;
+    padding: 5px;
+    color: #555;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
     right: 0;
-    top: 100%;
-    background-color: #f1f1f1;
-    min-width: 120px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    z-index: 10;
+    top: 110%;
+    background-color: #fff;
+    min-width: 140px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     overflow: hidden;
+    z-index: 10;
 }
 
-.dropdown-content button {
+.dropdown-content button,
+.dropdown-content a {
     width: 100%;
-    padding: 8px;
+    padding: 10px 12px;
     border: none;
     background: none;
     text-align: left;
     cursor: pointer;
+    display: block;
+    font-size: 16px;
+    color: #333;
 }
 
-.dropdown-content button:hover {
-    background-color: #ddd;
+
+.dropdown-content button:hover,
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
 }
+
 
 .deleteButton {
-    text_align: center;
+    color: red;
+}
+
+.deleteButton:hover {
+    background-color: #ffe0e0 !important;
+    color: #b30000 !important;
+}
+
+
+.inner_div p {
+    text-align: left;
+    padding: 5px 20px;
+    font-size: 17px;
+    color: #444;
+    line-height: 1.6;
+}
+
+.inner_div p:last-child {
+    font-size: 14px;
+    color: #888;
+    margin-top: 10px;
+}
+
+
+@media (max-width: 800px) {
+    .inner_div {
+        width: 90%;
+    }
 }
