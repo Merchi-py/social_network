@@ -1,0 +1,106 @@
+/* ===== CONTAINER ===== */
+
+.settings-container {
+    width: 40%;
+    background: #fafafa;
+    margin: 40px auto;
+    padding: 30px;
+    border: 1px solid #EBEBEB;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    text-align: center;
+}
+
+.settings-container h2 {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* ===== AVATAR PREVIEW ===== */
+
+.avatar-preview {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    margin: 0 auto 25px auto;
+    border: 3px solid #e5e5e5;
+}
+
+/* ===== FORM ===== */
+
+.settings-form {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.settings-form p {
+    margin-bottom: 18px;
+}
+
+/* Input styles */
+.form_control {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    outline: none;
+    transition: border .2s ease;
+}
+
+.form_control:focus {
+    border-color: #007bff;
+}
+
+/* ===== BUTTONS ===== */
+
+.save-btn {
+    width: 100%;
+    padding: 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 17px;
+    transition: background .2s ease;
+    margin-top: 10px;
+}
+
+.save-btn:hover {
+    background: #005fcc;
+}
+
+.logout-btn {
+    display: block;
+    margin-top: 15px;
+    padding: 12px;
+    background: #f8d7da;
+    color: #b40000;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background .2s ease;
+}
+
+.logout-btn:hover {
+    background: #f3c3c3;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 900px) {
+    .settings-container {
+        width: 70%;
+    }
+}
+
+@media (max-width: 600px) {
+    .settings-container {
+        width: 90%;
+    }
+}
