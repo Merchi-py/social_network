@@ -1,0 +1,34 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}Edit Profile{% endblock %}
+
+{% block import %}
+<link rel="stylesheet" href="{% static 'user/css/profile_edit.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="settings-container">
+
+    <h2>Edit Profile</h2>
+
+    {% if user.avatar %}
+        <img src="{{ user.avatar.url }}" class="avatar-preview">
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data" class="settings-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit" class="save-btn">Save</button>
+    </form>
+
+    {% url 'account_logout' as logout_url_ %}
+    {% if logout_url_ %}
+        <a href="{{ logout_url_ }}" class="logout-btn">Sign Out</a>
+    {% endif %}
+
+</div>
+
+{% endblock %}
