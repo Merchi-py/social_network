@@ -1,0 +1,97 @@
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Фото профиля */
+.profile-header .profile_image {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #e6e6e6;
+}
+
+/* Имя */
+.profile-info h1 {
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.settings-btn {
+    margin-left: auto;
+    background: none;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 2rem;
+    f
+}
+
+.settings-btn:hover {
+    background: #F7F7F7;
+}
+
+.posts-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 6 в ряд */
+    gap: 25px;
+    padding: 10px;
+    margin-left: 15%;
+    margin-top: 10%;
+}
+
+.post {
+    background: #fff;
+    border-radius: 16px;
+    padding: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e6e6e6;
+    transition: 0.25s ease;
+    font-family: "Inter", sans-serif;
+    text-align: center;
+    overflow: hidden;
+    width: 200px;
+}
+
+.post:hover {
+    transform: translateY(-0.9px);
+}
+
+.post img {
+    width: 170px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+
+.post h4 {
+    font-size: 1.2rem;
+    color: #222;
+    margin-bottom: 6px;
+}
+
+
+.post h6 {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.post .created-at {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.post a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+}
