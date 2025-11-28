@@ -19,11 +19,13 @@ from .views import *
 
 urlpatterns = [
     path("", PostView.as_view(), name="home"),
-    path("create-post/", PostCreateView.as_view(), name="create_text"),
+    path("create-post/", PostCreateView.as_view(), name="create_post"),
     path("delete-post/<int:pk>/", PostDeleteView.as_view(), name="delete_post"),
     path("detail-post/<int:post_id>/", PostDetailView.as_view(), name="detail_post"),
     path("update-post/<int:post_id>/", PostUpdateView.as_view(), name="update_post"),
     path("like_system/<int:post_id>/", LikeSystem.as_view(), name="like_system"),
     path("dislike_system/<int:post_id>/", DisLikeSystem.as_view(), name="dislike_system"),
+    path("create-comment/<int:post_id>/", CommentCreate.as_view(), name="create_comment")
+
 ]
 
