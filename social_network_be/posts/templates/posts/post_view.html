@@ -12,11 +12,12 @@
 
 
 {% block content %}
-<div>
-    <a href="{% url 'create_text' %}" class="btn btn-secondary">
-        <strong>✚</strong>
+<div class="d-flex align-items-start mb-3">
+    <a href="{% url 'create_post' %}" class="btn btn-social me-3">
+        <strong>✚ Додати Пост</strong>
     </a>
 </div>
+
 
 {% csrf_token %}
 {% for p in text_posts %}
@@ -50,11 +51,43 @@
 
             </button>
           </div>
+            <button type="button" class="btn-comment" data-bs-toggle="modal" data-bs-target="#commentModal">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M12 3C7 3 3 6 3 10c0 2.5 1.5 4.7 3.8 6l-.8 3 3-1.5c1.2.5 2.6.8 4 .8 5 0 9-3 9-7s-4-7-9-7z"/>
+    </svg>
+    Write a Comment...
+</button>
     </div>
 </div>
 <br>
 
 
+<div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="commentModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <form class="comment-form" data-post-id="{{ p.id }}">
+            {% csrf_token %}
+            <input name="text" type="text" class="comment-input" placeholder="Write a Comment...">
+            <input type="submit" value=">" class="commentSend">
+          </form>
+
+        <div class="comment-list" id="comment-list-{{ p.id }}">
+            {% for c in p.comments.all %}
+             <p><strong>{{ c.user.username }}:</strong> {{ c.text }}</p>
+            {% endfor %}
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 {% empty %}
 
 <h2>There are no Posts yet</h2>
@@ -62,5 +95,8 @@
 
 {% endfor %}
 
+
+
 <script src="{% static 'posts/js/rating_system.js' %}"></script>
+<script src="{% static 'posts/js/comment_creation.js' %}"></script>
 {% endblock %}
