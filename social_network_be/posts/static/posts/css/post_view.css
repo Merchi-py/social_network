@@ -116,3 +116,87 @@
   button[class="dislikeBtn"]:hover svg {
     fill: #a71d2a;
   }
+
+.comment {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.comment.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.comment-body {
+    flex: 1;
+}
+
+.comment-user {
+    font-weight: 600;
+}
+
+.comment-text {
+    margin: 2px 0 0 0;
+}
+
+
+.btn-comment {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    background-color: #E0E0E0;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+    transition: all 0.2s ease-in-out;
+    margin-top: 10px;
+    color: black;
+}
+
+
+.btn-comment:hover {
+    background-color: #D4D4D4;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(13, 110, 253, 0.35);
+}
+
+.btn-comment:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba(13, 110, 253, 0.25);
+}
+
+.btn-comment svg {
+    width: 16px;
+    height: 16px;
+    fill: #858585;
+    transition: transform 0.2s ease-in-out;
+}
+
+.btn-comment:hover svg {
+    transform: translateX(2px);
+}
+
+.btn-social {
+    background-color: #F0F0F0;
+    color: black;
+    font-size: 1.2rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-social:hover {
+    background-color: #E0E0E0;
+}
+
+
+
