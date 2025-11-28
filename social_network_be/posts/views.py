@@ -137,4 +137,20 @@ class DisLikeSystem(View, LoginRequiredMixin):
         new_values = PostModel.objects.values("dislikes_count", "likes_count").get(id=post_id)
         return JsonResponse({'response': new_values})
 
+class CommentCreate(LoginRequiredMixin, CreateView):
+    model = Comments
+    fields = ["text"]
+
+    def post(self, request, *args, **kwargs):
+        text = request.POST.get("text")
+        comment = Comments.objects.create(text=text, user=request.user, post_id=self.kwargs["post_id"])
+        return JsonResponse({"id": comment.id, "text": comment.text, "user": comment.user.username})
+
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        form.instance.post_id = self.kwargs["post_id"]
+        return super().form_valid(form)
+    def get_success_url(self):
+        return reverse_lazy("home")
 
